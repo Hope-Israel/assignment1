@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weight Converter</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .Box {
+            padding: 20px;
+            background-color: blue;
+            color: black;
+            border: 3px solid black;
+            width: 500px;
+            height: 180px;
+            margin: 0 auto;
+           
+        }
+
+        .input label {
+            margin-right: 10px;
+        }
+
+        .input {
+            display: flex;
+            align-items: center;
+        }
+
+      
+
+    </style>
+</head>
+
+<body>
+    <div class="Box">
+        <h1>Weight Converter (pound to kg)</h1>
+        <p>Enter weight value in pounds:</p>
+        <div class="input">
+            <label for="weight">Pounds:</label>
+            <input type="number" id="weight" placeholder="Enter weight..." oninput="convertToKilogram()" />
+        </div>
+        <br>
+        <label for="result">Result:</label>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertToKilogram() {
+            const Input = document.getElementById("weight");
+            const value = document.getElementById("result");
+
+            const weight = parseFloat(Input.value);
+
+            if (isNaN(weight)) {
+                value.textContent = "Please enter a valid weight.";
+                return;
+            }
+
+            const kilograms = weight * 0.453592;
+
+            value.textContent = `${weight} lb is equal to ${kilograms.toFixed(15)} kg`;
+        }
+    </script>
+</body>
+</html>
+
+  

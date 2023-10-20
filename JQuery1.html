@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Division Calculator</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: green;
+    }
+    #divisionCalc {
+      background-color: rgb(233, 233, 233);
+      padding: 25px;
+      border-radius: 15px;
+      width: 330px;
+      margin: 0 auto;
+     
+    }
+    input[type="number"] {
+      padding: 5px;
+      margin: 10px 0;
+      width: 100%;
+      
+    }
+   
+
+  </style>
+</head>
+<body>
+  <div id="divisionCalc">
+    <h2>Division Calculator!</h2>
+    <p>Please enter a numerator and a denominator!</p>
+
+
+    <form id="divisionSite">
+        
+      <label for="numerator">numerator:</label>
+      <input type="number" id="numerator" required>
+      <br>
+      <label for "denominator">denominator:</label>
+      <input type="number" id="denominator" required>
+      <br>
+      <button type="button" id="calcButton">Divide!</button>
+    </form>
+
+    
+    <p><span id="calculation"></span></p>
+    <br>
+  </div>
+
+  <script src="jquery-3.7.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+      $('#calcButton').click(function() {
+
+        var numerator = parseFloat($('#numerator').val());
+        var denominator = parseFloat($('#denominator').val());
+
+       
+        if (!isNaN(numerator) && !isNaN(denominator)) {
+          
+          if (denominator === 0) {
+            $('#calculation').text("You cannot divide by zero, please try again");
+          } else {
+           
+            var calculation = numerator / denominator;
+            $('#calculation').text("Result: " + calculation);
+          }
+        } else {
+          $('#calculation').text("Invalid input! Please try again.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        /*Setting up the size and spacing of the calculator itself*/
+        #calculator {
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        /*Setting up the style of the user input box*/
+        input[type="text"] {
+            padding: 15px;
+            font-size: 25px;
+            width: 100%;
+        }
+        /*Setting up button style, size, and font specifications*/
+        input[type="button"] {
+            border-radius: 50%;
+            background-color: green;
+            color: white;
+            border: none;
+            width: 85px;
+            height: 82px;
+            font-size: 24px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+<!--Setting up button structure and assigning values to them-->
+        <input type="text" id="result">
+        <input type="button" value="1" onclick="addNumber('1')">
+        <input type="button" value="2" onclick="addNumber('2')">
+        <input type="button" value="3" onclick="addNumber('3')">
+        <input type="button" value="+" onclick="mathSymbol('+')">
+        <input type="button" value="4" onclick="addNumber('4')">
+        <input type="button" value="5" onclick="addNumber('5')">
+        <input type="button" value="6" onclick="addNumber('6')">
+        <input type="button" value="-" onclick="mathSymbol('-')">
+        <input type="button" value="7" onclick="addNumber('7')">
+        <input type="button" value="8" onclick="addNumber('8')">
+        <input type="button" value="9" onclick="addNumber('9')">
+        <input type="button" value="*" onclick="mathSymbol('*')">
+        <input type="button" value="C" onclick="clearButton()">
+        <input type="button" value="0" onclick="addNumber('0')">
+        <input type="button" value="=" onclick="calcResult()">
+        <input type="button" value="/" onclick="mathSymbol('/')">
+    </div>
+
+    
+    <script>
+    //Appending the values chosen by the user
+        function addNumber(input) {
+            document.getElementById('result').value += input;
+        }
+
+    //When 'c' button is clicked, the previous user input will be removed
+        function clearButton() {
+            document.getElementById('result').value = '';
+        }
+
+
+    //adding mathmatical operators to the calculator
+        function mathSymbol(symbol) {
+            document.getElementById('result').value += symbol;
+        }
+
+       
+    //Calculating the result and rejecting invalid input
+        function calcResult() {
+            try {
+                const result = eval(document.getElementById('result').value);
+                document.getElementById('result').value = result;
+            } catch (error) {
+                document.getElementById('result').value = 'Error! Please Try Again!';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

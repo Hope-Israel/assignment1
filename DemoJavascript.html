@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demonstrating the JavaScript HTML DOM</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 650px;
+            height: 650px;
+            margin: 0 auto;
+            background-color: white;
+            color: black;
+            border: 3px solid black;
+           
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        hr {
+            border: 1px solid gray;
+            width: 650px;
+        }
+
+        .input-box {
+            margin: 5px 0;
+        }
+
+        .buttons {
+            margin: 0;
+        }
+
+        .textdisappearbox {
+            color: black;
+            text-align: center;
+            background-color: red;
+            padding: 10px;
+            
+        }
+
+        text {
+            font-weight: normal;
+            margin-top: -10px;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1 class="title">Demonstrating the JavaScript HTML DOM</h1>
+        <hr>
+        <p>Enter a text:</p>
+        <div class="input-box">
+            <input type="text" id="inputText" />
+        </div>
+
+        <div class="buttons">
+            <button id="clickButton" onclick="valText()">Click Me!</button>
+        </div>
+        <hr>
+
+        <p>Please enter a number between 1 and 10:</p>
+        <div class="input-box">
+            <input type="text" id="inputNumber" />
+        </div>
+
+        <div class="buttons">
+            <button id="RangeButton" onclick="valNum()">Click to Check Range</button>
+        </div>
+        <hr>
+
+        <p>Check the mouse over</p>
+        <div class="textdisappearbox" id="redBox" onmouseover="updateText()" onmouseout="reset()">
+            <p id="BoxText">Mouse over me</p>
+        </div>
+        <hr>
+
+        <p>Change the visibility of the text below:</p>
+        <p class="text" id="Disappear">This is the text</p>
+        <div class="buttons">
+            <button id="textVisibility" onclick="textVis()">Hide/Show Text</button>
+        </div>
+    </div>
+
+    <script>
+        function valText() {
+            var inputText = document.getElementById("inputText").value;
+
+            if (inputText.trim() === "") {
+                alert("Please enter some text.");
+            } else {
+                alert("You entered: " + inputText);
+            }
+        }
+
+        function valNum() {
+            var inputNumber = document.getElementById("inputNumber").value;
+
+            if (isNaN(inputNumber) || inputNumber < 1 || inputNumber > 10) {
+                alert("Incorrect! Please enter a number between 1 and 10.");
+            } else {
+                alert("Input: " + inputNumber);
+            }
+        }
+
+        function updateText() {
+            document.getElementById("BoxText").textContent = "Thank You!";
+        }
+
+        function reset() {
+            document.getElementById("BoxText").textContent = "Mouse over me";
+        }
+
+        function textVis() {
+            var textParagraph = document.getElementById("Disappear");
+
+            if (textParagraph.style.display === "none" || textParagraph.style.display === "") {
+                textParagraph.style.display = "block";
+            } else {
+                textParagraph.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
